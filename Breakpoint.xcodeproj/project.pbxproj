@@ -16,6 +16,10 @@
 		A1E88376217FA02A00E55A3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E88374217FA02A00E55A3C /* LaunchScreen.storyboard */; };
 		A1E88383217FA20500E55A3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1E88382217FA20500E55A3C /* GoogleService-Info.plist */; };
 		A1E88385217FA56000E55A3C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E88384217FA56000E55A3C /* DataService.swift */; };
+		A1E88388217FCA5D00E55A3C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E88386217FCA5D00E55A3C /* AuthVC.swift */; };
+		A1E88389217FCA5D00E55A3C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E88387217FCA5D00E55A3C /* LoginVC.swift */; };
+		A1E8838C217FCA6B00E55A3C /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8838A217FCA6A00E55A3C /* InsetTextField.swift */; };
+		A1E8838D217FCA6B00E55A3C /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8838B217FCA6B00E55A3C /* ShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		A1E88377217FA02A00E55A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1E88382217FA20500E55A3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1E88384217FA56000E55A3C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		A1E88386217FCA5D00E55A3C /* AuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		A1E88387217FCA5D00E55A3C /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		A1E8838A217FCA6A00E55A3C /* InsetTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
+		A1E8838B217FCA6B00E55A3C /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,8 @@
 		A1E8837D217FA03700E55A3C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A1E88386217FCA5D00E55A3C /* AuthVC.swift */,
+				A1E88387217FCA5D00E55A3C /* LoginVC.swift */,
 				A1E8836B217FA02900E55A3C /* FirstViewController.swift */,
 				A1E8836D217FA02900E55A3C /* SecondViewController.swift */,
 			);
@@ -102,6 +112,8 @@
 		A1E8837E217FA07D00E55A3C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1E8838A217FCA6A00E55A3C /* InsetTextField.swift */,
+				A1E8838B217FCA6B00E55A3C /* ShadowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,9 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E88388217FCA5D00E55A3C /* AuthVC.swift in Sources */,
 				A1E8836E217FA02900E55A3C /* SecondViewController.swift in Sources */,
+				A1E88389217FCA5D00E55A3C /* LoginVC.swift in Sources */,
 				A1E8836A217FA02900E55A3C /* AppDelegate.swift in Sources */,
+				A1E8838D217FCA6B00E55A3C /* ShadowView.swift in Sources */,
 				A1E8836C217FA02900E55A3C /* FirstViewController.swift in Sources */,
+				A1E8838C217FCA6B00E55A3C /* InsetTextField.swift in Sources */,
 				A1E88385217FA56000E55A3C /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
