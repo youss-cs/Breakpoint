@@ -7,29 +7,48 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
-
+    @IBOutlet weak var emailField: InsetTextField!
+    @IBOutlet weak var passwordField: InsetTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        emailField.delegate = self
+        passwordField.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func signInBtnWasPressed(_ sender: Any) {
+        guard let email = emailField.text, let password = passwordField.text, email != "" && password != "" else {
+            return
+        }
+        
+        loginUser(withEmail: email, password: password)
+        AuthService.instance.registerUser(withEmail: email, andPassword: password, completion: { (success, registrationError) in
+            if success {
+                self.loginUser(withEmail: email, password: password)
+            } else {
+                print(String(describing: registrationError?.localizedDescription))
+            }
+        })
+    
     }
-    */
-
+    
+    @IBAction func closeBtnWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func loginUser(withEmail email:String, password: String) {
+        AuthService.instance.loginUser(withEmail: email, andPassword: password, completion: { (success, loginError) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(String(describing: loginError?.localizedDescription))
+            }
+        })
+    }
 }
+
+extension LoginVC: UITextFieldDelegate { }
+
