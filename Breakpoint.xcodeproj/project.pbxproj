@@ -13,9 +13,10 @@
 		A12A795A2180C11400345CCE /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A79592180C11400345CCE /* CreatePostVC.swift */; };
 		A12A795C2180CDC700345CCE /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A795B2180CDC600345CCE /* UIViewExt.swift */; };
 		A12A795E2180D0EF00345CCE /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A795D2180D0EF00345CCE /* FeedCell.swift */; };
+		A1B08A622181F85A000695B2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B08A612181F85A000695B2 /* Message.swift */; };
 		A1E8836A217FA02900E55A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E88369217FA02900E55A3C /* AppDelegate.swift */; };
-		A1E8836C217FA02900E55A3C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8836B217FA02900E55A3C /* FirstViewController.swift */; };
-		A1E8836E217FA02900E55A3C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8836D217FA02900E55A3C /* SecondViewController.swift */; };
+		A1E8836C217FA02900E55A3C /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8836B217FA02900E55A3C /* FeedVC.swift */; };
+		A1E8836E217FA02900E55A3C /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8836D217FA02900E55A3C /* GroupVC.swift */; };
 		A1E88371217FA02900E55A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E8836F217FA02900E55A3C /* Main.storyboard */; };
 		A1E88373217FA02A00E55A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E88372217FA02A00E55A3C /* Assets.xcassets */; };
 		A1E88376217FA02A00E55A3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E88374217FA02A00E55A3C /* LaunchScreen.storyboard */; };
@@ -36,10 +37,11 @@
 		A12A79592180C11400345CCE /* CreatePostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		A12A795B2180CDC600345CCE /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		A12A795D2180D0EF00345CCE /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		A1B08A612181F85A000695B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A1E88366217FA02900E55A3C /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E88369217FA02900E55A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1E8836B217FA02900E55A3C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		A1E8836D217FA02900E55A3C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A1E8836B217FA02900E55A3C /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		A1E8836D217FA02900E55A3C /* GroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
 		A1E88370217FA02900E55A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1E88372217FA02A00E55A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E88375217FA02A00E55A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -115,8 +117,8 @@
 				A12A79552180BB3000345CCE /* MeVC.swift */,
 				A1E88386217FCA5D00E55A3C /* AuthVC.swift */,
 				A1E88387217FCA5D00E55A3C /* LoginVC.swift */,
-				A1E8836B217FA02900E55A3C /* FirstViewController.swift */,
-				A1E8836D217FA02900E55A3C /* SecondViewController.swift */,
+				A1E8836B217FA02900E55A3C /* FeedVC.swift */,
+				A1E8836D217FA02900E55A3C /* GroupVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -134,6 +136,7 @@
 		A1E8837F217FA08F00E55A3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1B08A612181F85A000695B2 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,15 +290,16 @@
 				A12A795E2180D0EF00345CCE /* FeedCell.swift in Sources */,
 				A12A79562180BB3000345CCE /* MeVC.swift in Sources */,
 				A1E88388217FCA5D00E55A3C /* AuthVC.swift in Sources */,
-				A1E8836E217FA02900E55A3C /* SecondViewController.swift in Sources */,
+				A1E8836E217FA02900E55A3C /* GroupVC.swift in Sources */,
 				A1E88389217FCA5D00E55A3C /* LoginVC.swift in Sources */,
 				A12A7954218098F100345CCE /* AuthService.swift in Sources */,
 				A1E8836A217FA02900E55A3C /* AppDelegate.swift in Sources */,
 				A1E8838D217FCA6B00E55A3C /* ShadowView.swift in Sources */,
 				A12A795A2180C11400345CCE /* CreatePostVC.swift in Sources */,
-				A1E8836C217FA02900E55A3C /* FirstViewController.swift in Sources */,
+				A1E8836C217FA02900E55A3C /* FeedVC.swift in Sources */,
 				A1E8838C217FCA6B00E55A3C /* InsetTextField.swift in Sources */,
 				A1E88385217FA56000E55A3C /* DataService.swift in Sources */,
+				A1B08A622181F85A000695B2 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
