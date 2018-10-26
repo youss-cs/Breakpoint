@@ -113,12 +113,12 @@
 		A1E8837D217FA03700E55A3C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A12A79592180C11400345CCE /* CreatePostVC.swift */,
 				A12A79552180BB3000345CCE /* MeVC.swift */,
 				A1E88386217FCA5D00E55A3C /* AuthVC.swift */,
 				A1E88387217FCA5D00E55A3C /* LoginVC.swift */,
 				A1E8836B217FA02900E55A3C /* FeedVC.swift */,
 				A1E8836D217FA02900E55A3C /* GroupVC.swift */,
+				A12A79592180C11400345CCE /* CreatePostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

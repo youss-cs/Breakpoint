@@ -14,12 +14,10 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var contentLbl: UILabel!
     
-    func configureCell(profileImage: UIImage, message: Message) {
+    func configureCell(profileImage: UIImage, email: String, content: String) {
         self.profileImage.image = profileImage
-        self.emailLbl.text = message.senderId
-        self.contentLbl.text = message.content
-        print(message.senderId)
-        print(message.content)
+        self.emailLbl.text = email
+        self.contentLbl.text = content
     }
     
 }
