@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupsVC: UIViewController {
 
     @IBOutlet weak var titleField: InsetTextField!
     @IBOutlet weak var descriptionField: InsetTextField!
     @IBOutlet weak var emailSearchField: InsetTextField!
-    @IBOutlet weak var groupMemberLbl: UIStackView!
+    @IBOutlet weak var groupMemberLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneBtn: UIButton!
     
     var emails = [String]()
+    var chosenUserArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,20 @@ class CreateGroupsVC: UIViewController {
 
     
     @IBAction func doneBtnPressed(_ sender: Any) {
+        if titleField.text != "" && descriptionField.text != "" {
+            DataService.instance.getIds(forUsernames: chosenUserArray, handler: { (ids) in
+                var userIds = ids
+                userIds.append((Auth.auth().currentUser?.uid)!)
+                
+                DataService.instance.createGroup(withTitle: self.titleField.text!, andDescription: self.descriptionField.text!, forUserIds: userIds, handler: { (groupCreated) in
+                    if groupCreated {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print("Group could not be created. Please try again.")
+                    }
+                })
+            })
+        }
     }
     
     @IBAction func closeBtnPressed(_ sender: Any) {
@@ -61,12 +77,35 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell() }
         let profileImage = UIImage(named: "defaultProfileImage")
         
-        cell.configureCell(profileImage: profileImage!, email: emails[indexPath.row], isSelected: true)
+        if chosenUserArray.contains(emails[indexPath.row]) {
+            cell.configureCell(profileImage: profileImage!, email: emails[indexPath.row], isSelected: true)
+        } else {
+            cell.configureCell(profileImage: profileImage!, email: emails[indexPath.row], isSelected: false)
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
+        if !chosenUserArray.contains(cell.emailLbl.text!) {
+            chosenUserArray.append(cell.emailLbl.text!)
+            groupMemberLbl.text = chosenUserArray.joined(separator: ", ")
+            doneBtn.isHidden = false
+        } else {
+            chosenUserArray = chosenUserArray.filter({ $0 != cell.emailLbl.text! })
+            if chosenUserArray.count >= 1 {
+                groupMemberLbl.text = chosenUserArray.joined(separator: ", ")
+            } else {
+                groupMemberLbl.text = "add people to your group"
+                doneBtn.isHidden = true
+            }
+        }
     }
 }
 
 extension CreateGroupsVC: UITextFieldDelegate {
     
 }
+
 

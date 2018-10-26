@@ -24,29 +24,29 @@ class LoginVC: UIViewController {
             return
         }
         
-        loginUser(withEmail: email, password: password)
-        AuthService.instance.registerUser(withEmail: email, andPassword: password, completion: { (success, registrationError) in
+        AuthService.instance.loginUser(withEmail: emailField.text!, andPassword: passwordField.text!, completion: { (success, loginError) in
             if success {
-                self.loginUser(withEmail: email, password: password)
+                self.dismiss(animated: true, completion: nil)
             } else {
-                print(String(describing: registrationError?.localizedDescription))
+                print(String(describing: loginError?.localizedDescription))
             }
+            
+            AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, completion: { (success, registrationError) in
+                if success {
+                    AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, completion: { (success, nil) in
+                        self.dismiss(animated: true, completion: nil)
+                        print("Successfully registered user")
+                    })
+                } else {
+                    print(String(describing: registrationError?.localizedDescription))
+                }
+            })
         })
     
     }
     
     @IBAction func closeBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func loginUser(withEmail email:String, password: String) {
-        AuthService.instance.loginUser(withEmail: email, andPassword: password, completion: { (success, loginError) in
-            if success {
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                print(String(describing: loginError?.localizedDescription))
-            }
-        })
     }
 }
 
